@@ -1,0 +1,36 @@
+name: Build
+on:
+  push:
+    branches:
+      - main # the name of your main branch
+    paths:
+      - service/service-b
+      - .github/workflows/config-second-service.yml
+  pull_request:
+    branches:
+      - main # the name of your main branch
+    paths:
+      - service/service-b
+      - .github/workflows/config-second-service.yml
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Install dependencies
+        run: yarn
+        working-directory: service/service-b/angular-tour-of-heroes
+      - name: Test and coverage
+        run: yarn jest --coverage
+        working-directory: service/service-b/angular-tour-of-heroes
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v1.1.0
+        with:
+          projectBaseDir: service/service-b/angular-tour-of-heroes
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
