@@ -30,9 +30,9 @@ jobs:
       - name: Check Java Version
         run: java -version
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v2.2.0
+        uses: SonarSource/sonarqube-scan-action@v5
         with:
           projectBaseDir: service/serivce-a/angular-tour-of-heroes
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
