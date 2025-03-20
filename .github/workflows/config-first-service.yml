@@ -21,6 +21,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Check Java Version
+        run: java -version
+      - name: Set up JDK 17  # <--- Add this step
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      - name: Check Java Version
+        run: java -version
+      - name: Use Java 17 for SonarScanner
+        run: export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
       - name: Install dependencies
         run: yarn
         working-directory: service/serivce-a/angular-tour-of-heroes
