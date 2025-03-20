@@ -26,6 +26,8 @@ jobs:
         with:
           distribution: 'temurin' # Use Eclipse Temurin distribution
           java-version: '17'
+      - name: Verify Java Version
+        run: java -version
       - name: Install dependencies
         run: yarn
         working-directory: service/serivce-a/angular-tour-of-heroes
