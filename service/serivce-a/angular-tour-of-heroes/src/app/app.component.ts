@@ -15,11 +15,11 @@ export class AppComponent {
   }
 
   // Potential bug: Weak equality check
-  checkValue() {
-    if ("123" == 123) { // Weak comparison
-      console.log("Values are equal")
-    }
-  }
+  // checkValue() {
+  //   if ("123" == 123) { // Weak comparison
+  //     console.log("Values are equal")
+  //   }
+  // }
 
   // // 🚨 Hardcoded credentials (should trigger a security warning)
   // private apiKey = "12345-SECRET-KEY"; 
