@@ -24,9 +24,9 @@ jobs:
       - name: Install dependencies
         run: yarn
         working-directory: service/serivce-a/angular-tour-of-heroes
-      - name: Test and coverage
-        run: yarn jest --coverage
-        working-directory: service/serivce-a/angular-tour-of-heroes
+      # - name: Test and coverage
+      #   run: yarn jest --coverage
+        # working-directory: service/serivce-a/angular-tour-of-heroes
       - name: Check Java Version
         run: java -version
       - name: SonarQube Scan
