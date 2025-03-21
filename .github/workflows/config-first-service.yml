@@ -3,16 +3,16 @@ on:
   push:
     branches:
       - main # the name of your main branch
-    paths:
-      - service/*
-      - .github/workflows/config-first-service.yml
-  pull_request:
-    branches:
-      - main # the name of your main branch
-    paths:
-      - service/*
-      - .github/workflows/config-first-service.yml
-    types: [opened, synchronize, reopened]
+    # paths:
+    #   - service/*
+    #   - .github/workflows/config-first-service.yml
+  # pull_request:
+  #   branches:
+  #     - main # the name of your main branch
+  #   paths:
+  #     - service/*
+  #     - .github/workflows/config-first-service.yml
+  #   types: [opened, synchronize, reopened]
 jobs:
   build:
     name: Build
