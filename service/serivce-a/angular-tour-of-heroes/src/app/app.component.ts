@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-tour-of-heroes';
   // Unused variable (should be detected)
-  unusedVar = 42;
+  _unusedVar = 42;
 
   sum(a: number, b: number) {
     return a + b
